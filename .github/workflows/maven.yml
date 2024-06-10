@@ -10,7 +10,7 @@ on:
     - cron: "*/5 * * * *"
 jobs:
   build:
-
+    cron:
     runs-on: ubuntuvm
     permissions: write-all
     steps:
