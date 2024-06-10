@@ -1,5 +1,5 @@
 
-name: Test with junit test cases
+name: Java Testing
 
 on:
   push:
@@ -11,14 +11,21 @@ jobs:
   build:
 
     runs-on: ubuntuvm
-
+    permissions: write-all
     steps:
-    - uses: actions/checkout@v3
+    - name: checking out repository
+      uses: actions/checkout@v4
     - name: Set up JDK 8
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '8'
         distribution: 'adopt'
         cache: maven
-    - name: Build with Maven
+    - name: Build with Maven and running test
       run: mvn clean test
+    - name: Publish Test Report
+      if: success() || failure()
+      uses: ScaCap/action-surefire-report@v1.8.0
+              
+            
+      
