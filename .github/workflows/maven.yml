@@ -10,7 +10,6 @@ on:
     - cron: "*/1 * * * *"
 jobs:
   cron:
-  build:
     runs-on: ubuntuvm
     permissions: write-all
     steps:
