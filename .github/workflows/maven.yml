@@ -11,10 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntuvm
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
+    permissions: write-all
     steps:
     - name: checking out repository
       uses: actions/checkout@v4
