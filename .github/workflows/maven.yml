@@ -11,6 +11,11 @@ on:
 jobs:
   build:
     runs-on: ubuntuvm
+    env:  # Define environment variables for the job
+      JAVA_VERSION: '8'
+      DISTRIBUTION: 'adopt'
+      MAVEN_CACHE: maven
+      SOME_SECRET: ${{ secrets.SOME_SECRET }}  # Example secret
     permissions: write-all
     steps:
     - name: checking out repository
@@ -23,6 +28,8 @@ jobs:
         cache: maven
     - name: Build with Maven and running test
       run: mvn clean test
+    - name: checking environment variable 
+      run: env
     - name: Publish Test Report
       if: success() || failure()
       uses: ScaCap/action-surefire-report@v1.8.0
