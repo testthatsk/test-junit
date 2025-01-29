@@ -17,3 +17,7 @@ jobs:
         with:
           workflow: "test.yml"
           name: versioninfoartifact      
+      - name: checking artifact
+        run: |
+           ls -la
+           cat buildinfo.txt 
