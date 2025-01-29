@@ -14,7 +14,6 @@ jobs:
     - name: checking vars
       run: | 
         ls -la 
-        git status
         echo "This is " > buildinfo.txt
     - name: Upload buildinfo file as artifact
       uses: actions/upload-artifact@v4
