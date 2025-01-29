@@ -15,6 +15,9 @@ jobs:
       run: | 
         ls -la 
         echo "This is $(date +%Y%m%d-%H%M%S) " > buildinfo.txt
+    - name: checking info
+      run: |
+        cat buildinfo.txt      
     - name: Upload buildinfo file as artifact
       uses: actions/upload-artifact@v4
       with:
