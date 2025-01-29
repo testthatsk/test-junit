@@ -3,7 +3,7 @@ name: Deploy
 
 on:
   workflow_run:
-    workflows: Java 
+    workflows: Java Testing
     types: [completed]
   workflow_dispatch:  # Triggered manually
     inputs:    
