@@ -1,0 +1,27 @@
+
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: Java Testing
+    types: [completed]
+
+jobs:
+  build:
+    runs-on: ubuntuvm
+    permissions: write-all
+    steps:
+    - name: checking vars
+      run: | 
+        ls -la 
+        git status
+        echo "This is ${{ inputs.build_type }} " > buildinfo.txt
+    - name: Upload buildinfo file as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: versioninfoartifact
+        path: buildinfo.txt
+        retention-days: 7
+              
+            
+      
