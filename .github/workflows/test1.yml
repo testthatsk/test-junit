@@ -11,17 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-    - name: checking vars
-      run: | 
-        ls -la 
-        git status
-        echo "This is ${{ inputs.build_type }} " > buildinfo.txt
-    - name: Upload buildinfo file as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: versioninfoartifact
-        path: buildinfo.txt
-        retention-days: 7
-              
-            
-      
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: "Java Testing"
+          name: versioninfoartifact
