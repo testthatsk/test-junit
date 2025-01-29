@@ -3,7 +3,7 @@ name: Deploy
 
 on:
   workflow_run:
-    workflows: Java Testing
+    workflows: Java 
     types: [completed]
 
 jobs:
@@ -15,5 +15,5 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v6
         with:
-          workflow: "Java Testing"
+          workflow: "Java"
           name: versioninfoartifact
