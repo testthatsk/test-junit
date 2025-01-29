@@ -1,5 +1,5 @@
 
-name: Java
+name: Java Testing
 
 on:
   push:
